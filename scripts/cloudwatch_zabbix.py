@@ -33,6 +33,7 @@ class AwsZabbix:
             'rds':'DBInstanceIdentifier',
             'elb':'LoadBalancerName',
             'ebs':'VolumeId',
+			'elasticache':'CacheClusterId',
             'billing': 'Currency'
         }
         self.client = boto3.client(
