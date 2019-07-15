@@ -31,6 +31,7 @@ class AwsZabbix:
         self.id_dimentions = {
             'ec2':'InstanceId',
             'rds':'DBInstanceIdentifier',
+			'rdscluster':'DBClusterIdentifier',
             'elb':'LoadBalancerName',
             'ebs':'VolumeId',
 			'elasticache':'CacheClusterId',
@@ -238,7 +239,7 @@ if __name__ == '__main__':
     parser.add_argument('-r', '--region', default=os.getenv("AWS_DEFAULT_REGION"), help='set AWS region name(e.g.: ap-northeast-1)')
     parser.add_argument('-a', '--accesskey', default=os.getenv("AWS_ACCESS_KEY_ID"), help='set AWS Access Key ID')
     parser.add_argument('-s', '--secret', default=os.getenv("AWS_SECRET_ACCESS_KEY"), help='set AWS Secret Access Key')
-    parser.add_argument('-i', '--identity', required=True, help='set Identity data (ec2: InstanceId, elb: LoadBalancerName, rds: DBInstanceIdentifier, ebs: VolumeId)')
+    parser.add_argument('-i', '--identity', required=True, help='set Identity data (ec2: InstanceId, elb: LoadBalancerName, rds: DBInstanceIdentifier, rdscluster: DBClusterIdentifier, ebs: VolumeId)')
     parser.add_argument('-H', '--hostname', default='undefined', help='set string that has to match HOST.HOST. defaults to identity)')
     parser.add_argument('-m', '--send-mode', default='False', help='set True if you send statistic data (e.g.: True or False)')
     parser.add_argument('-t', '--timerange', type=int, default=10, help='set Timerange min')

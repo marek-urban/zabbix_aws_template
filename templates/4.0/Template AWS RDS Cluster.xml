@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>4.2</version>
-    <date>2019-07-08T11:03:43Z</date>
+    <date>2019-07-15T11:45:49Z</date>
     <groups>
         <group>
             <name>TIS Templates</name>
@@ -9,8 +9,8 @@
     </groups>
     <templates>
         <template>
-            <template>Template AWS ELC</template>
-            <name>Template AWS ELC</name>
+            <template>Template AWS RDS Cluster</template>
+            <name>Template AWS RDS Cluster</name>
             <description/>
             <groups>
                 <group>
@@ -20,11 +20,11 @@
             <applications/>
             <items>
                 <item>
-                    <name>Collect CloudWatch metric stats ELC</name>
+                    <name>Collect CloudWatch metric stats RDS</name>
                     <type>10</type>
                     <snmp_community/>
                     <snmp_oid/>
-                    <key>cloudwatch_zabbix.py[elasticache,&quot;-r&quot;,{$REGION},&quot;-a&quot;,{$KEY},&quot;-s&quot;,{$SECRET},&quot;-i&quot;,{HOST.HOST},&quot;-m&quot;,&quot;True&quot;]</key>
+                    <key>cloudwatch_zabbix.py[rdscluster,&quot;-r&quot;,{$REGION},&quot;-a&quot;,{$KEY},&quot;-s&quot;,{$SECRET},&quot;-i&quot;,{HOST.HOST},&quot;-m&quot;,&quot;True&quot;]</key>
                     <delay>300</delay>
                     <history>90d</history>
                     <trends>0</trends>
@@ -77,11 +77,11 @@
             </items>
             <discovery_rules>
                 <discovery_rule>
-                    <name>CloudWatch metrics list discovery ELC</name>
+                    <name>CloudWatch metrics list discovery RDS</name>
                     <type>10</type>
                     <snmp_community/>
                     <snmp_oid/>
-                    <key>cloudwatch_zabbix.py[elasticache,&quot;-r&quot;,{$REGION},&quot;-a&quot;,{$KEY},&quot;-s&quot;,{$SECRET},&quot;-i&quot;,{HOST.HOST}]</key>
+                    <key>cloudwatch_zabbix.py[rdscluster,&quot;-r&quot;,{$REGION},&quot;-a&quot;,{$KEY},&quot;-s&quot;,{$SECRET},&quot;-i&quot;,{HOST.HOST}]</key>
                     <delay>3600</delay>
                     <status>0</status>
                     <allowed_hosts/>
@@ -109,7 +109,7 @@
                     <description/>
                     <item_prototypes>
                         <item_prototype>
-                            <name>ELC CloudWatch Metric stats (Average) [{#METRIC.NAME}]</name>
+                            <name>[{#METRIC.NAME}] - RDS AWS Cluster (Avg val.)</name>
                             <type>2</type>
                             <snmp_community/>
                             <snmp_oid/>
